@@ -17,6 +17,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // Table View Data Source Methods
     func numberOfSections(in tableView: UITableView) -> Int {
+        tableView.backgroundColor = UIColor.clear
+        
         return 3
     }
     
@@ -47,6 +49,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.textLabel?.text = "This shouldn't happen"
             
         }
+        
+        cell.backgroundColor = UIColor.clear
         
         return cell
     }
@@ -81,6 +85,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     let monthlyTasks = ["Test security alarms",
                         "Test motion detectors",
                         "Test smoke alarms"]
+    
+    
+    @IBAction func toggleDarkMode(_ sender: Any) {
+        let mySwitch = sender as! UISwitch
+        
+        if mySwitch.isOn {
+            view.backgroundColor = UIColor.darkGray
+        } else {
+            view.backgroundColor = UIColor.white
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
